@@ -1,16 +1,11 @@
-import { useState, useEffect } from "react"
+
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { useNotes } from "../NotesContext/NotesContext";
 
 export const SavedNotes = ()=>{
 
-    const [notes, setNotes] = useState([])
-
-    useEffect(()=>{
-        const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || []
-        console.log(savedNotes)
-        setNotes(savedNotes)
-    },[])
+    const {notes, setNotes} = useNotes()
 
     const handleDelete = (id)=>{
         const updateNotes = notes.filter((e)=>e.id !== id)
@@ -20,7 +15,7 @@ export const SavedNotes = ()=>{
 
     const btnDelete = (id)=>{
         toast.warning(
-            <div className='text-black h-full'>
+            <div className='text-black h-full text-center'>
                 <span>
                     <p>
                         ¿Desea eliminar el registro?
@@ -55,19 +50,19 @@ export const SavedNotes = ()=>{
         <div className="flex flex-col items-center w-full my-2">
             <h1 className="my-2 p-2 lg:text-2xl font-semibold">Tus notas</h1>
             <p className="text-center">Aca podes encontrar tus notas guardadas!</p>
-            <ul className=" my-2 py-2 flex flex-wrap justify-center">
+            <ul className=" my-2 py-2 flex flex-wrap justify-center w-5/6">
             {notes.map((note)=>(
                 <li key={note.id} className={`p-4 m-2 border-4 ${note.color} text-center rounded-xl`}>
                     <h4 className="text-xs">Nota N: {note.id}</h4>
                     <p className="text-xl">{note.value}</p>
                     <button onClick={()=>btnDelete(note.id)} className="text-xs text-red-600 p-1 m-1 border border-red-600 rounded-md">Eliminar</button>
-                    <ToastContainer autoClose={4000}/>
+
                 </li>
                 
             ))
                 }
             </ul>
-            
+            <ToastContainer autoClose={4000}/>
         </div>
     </>
 }
