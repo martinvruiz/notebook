@@ -1,5 +1,5 @@
 
-import { ToastContainer, toast } from "react-toastify"
+import {  toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { useNotes } from "../NotesContext/NotesContext";
 
@@ -10,7 +10,6 @@ export const SavedNotes = ()=>{
     const handleDelete = (id)=>{
         const updateNotes = notes.filter((e)=>e.id !== id)
         setNotes(updateNotes)
-        localStorage.setItem("savedNotes", JSON.stringify(updateNotes))
     }
 
     const btnDelete = (id)=>{
@@ -26,7 +25,7 @@ export const SavedNotes = ()=>{
                     <button
                     onClick={() => {
                     handleDelete(id);
-                    toast.dismiss();
+                    toast.dismiss()
                     }}
                     className=' bg-black text-white rounded-md my-2 mx-6 px-2'
                     >
@@ -62,7 +61,6 @@ export const SavedNotes = ()=>{
             ))
                 }
             </ul>
-            <ToastContainer autoClose={4000}/>
         </div>
     </>
 }

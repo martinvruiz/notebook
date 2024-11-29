@@ -4,12 +4,11 @@ const NoteContext = createContext()
 
 export const NotesProvider = ({children})=>{
 
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState(()=>{
+        const savedNotes = localStorage.getItem("savedNotes")
+        return savedNotes ? JSON.parse(savedNotes) : []
+    })
 
-    useEffect(() => {
-        const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-        setNotes(savedNotes);
-    }, []);
 
     useEffect(() => {
         localStorage.setItem("savedNotes", JSON.stringify(notes));

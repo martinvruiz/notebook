@@ -1,9 +1,10 @@
-import { NavBar } from "./components/SideBar/Navbar";
+import { NavBar } from "./components/NavBar/Navbar";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Help } from "./pages/Help";
 import 'react-toastify/dist/ReactToastify.css';
 import { NotesProvider } from "./components/NotesContext/NotesContext";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/help" element={<Help/>}></Route>
 
         </Routes>
+        <ToastContainer autoClose={2000}/>
         </div>
       </BrowserRouter>
     </NotesProvider>
