@@ -51,7 +51,7 @@ export const SavedNotes = ()=>{
             <p className="text-center">Aca podes encontrar tus notas guardadas!</p>
             <ul className=" my-2 py-2 flex flex-wrap justify-center w-5/6">
             {notes.map((note)=>(
-                <li key={note.id} className={`p-4 m-2 border-4 ${note.color} text-center rounded-xl`}>
+                <li key={note.id} className={`p-4 m-2 border-4 ${note.color} text-center bg-white text-black rounded-xl`}>
                     <h4 className="text-xs">Nota N: {note.id}</h4>
                     <p className="text-xl">{note.value}</p>
                     <button onClick={()=>btnDelete(note.id)} className="text-xs text-red-600 p-1 m-1 border border-red-600 rounded-md">Eliminar</button>
