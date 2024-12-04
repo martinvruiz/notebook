@@ -57,7 +57,7 @@ const handleSubmit = (e)=>{
             <h3 className="text-center text-xl p-2">
                 Tus ultimas notas
             </h3>
-            <ul className="flex justify-center w-full">
+            <ul className="flex flex-col lg:flex-row justify-center w-3/4">
             {
             notes.slice(-3).map((note) => (
                 <li
@@ -65,7 +65,7 @@ const handleSubmit = (e)=>{
                     className={`p-4 m-2 border-4 ${note.color} text-center bg-white text-black rounded-xl`} 
                 >
                     <h4 className="text-xs">Nota N: {note.id}</h4>
-                    <p className="text-xl">{note.value}</p>
+                    <p className="text-xl break-words">{note.value}</p>
                 </li>
             ))}
         </ul>

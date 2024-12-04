@@ -12,7 +12,7 @@ function App() {
   return (
     <NotesProvider>
       <BrowserRouter>
-      <div className="flex flex-col min-h-screen font-roboto bg-lightGreen text-white">
+      <div className="flex flex-col items-center min-h-screen font-roboto bg-lightGreen text-white">
         <NavBar/>
         <Routes>
 

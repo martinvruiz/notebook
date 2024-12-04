@@ -5,7 +5,7 @@ export const Help = ()=>{
 
     return <>
     
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col text-center w-4/5 items-center w-full">
         <h2 className="text-xl lg:text-3xl font-semibold my-2 p-2">
             Dudas
         </h2>
