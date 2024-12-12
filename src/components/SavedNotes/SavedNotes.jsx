@@ -46,15 +46,15 @@ export const SavedNotes = ()=>{
     }; 
 
     return <>
-        <div className="flex flex-col items-center w-full my-2">
-            <h1 className="my-2 p-2 lg:text-2xl font-semibold">Tus notas</h1>
-            <p className="text-center">Aca podes encontrar tus notas guardadas!</p>
-            <ul className=" my-2 py-2 flex flex-wrap justify-center w-5/6">
+        <div className="flex flex-col items-center w-full my-4 px-4">
+            <h1 className="my-2 text-2xl lg:text-3xl font-bold text-white">Tus notas</h1>
+            <p className="text-center text-gray-200 text-lg mb-4">Aca podes encontrar tus notas guardadas!</p>
+            <ul className="flex flex-wrap justify-center gap-4 w-full max-w-5xl">
             {notes.map((note)=>(
-                <li key={note.id} className={`p-4 m-2 border-4 ${note.color} text-center bg-white text-black rounded-xl`}>
-                    <h4 className="text-xs">Nota N: {note.id}</h4>
-                    <p className="text-xl">{note.value}</p>
-                    <button onClick={()=>btnDelete(note.id)} className="text-xs text-red-600 p-1 m-1 border border-red-600 rounded-md">Eliminar</button>
+                <li key={note.id} className={`p-4 w-full sm:w-1/3 md:w-1/4 border-4 ${note.color} bg-white shadow-lg rounded-lg flex flex-col items-center`}>
+                    <h4 className="text-sm text-gray-500 mb-2">Nota N: {note.id}</h4>
+                    <p className="text-lg text-gray-800 mb-4 break-words">{note.value}</p>
+                    <button onClick={()=>btnDelete(note.id)} className="text-sm text-white bg-red-600 p-2 rounded-md shadow hover:bg-red-700 transition">Eliminar</button>
 
                 </li>
                 

@@ -40,32 +40,47 @@ const handleSubmit = (e)=>{
 
 
 
-    return <div className="flex w-full flex-col items-center">
+    return <div className="flex w-full flex-col items-center bg-lightGreen p-4">
     
-        <form action="note" onSubmit={handleSubmit} className=" my-2 p-2 flex flex-col gap-3 w-full items-center text-black">
-            <select name="color-note" id="color-note" value={noteColor} onChange={handleColorChange} className="p-2 border-2 border-green-800 rounded-lg">
+        <form 
+            action="note" 
+            onSubmit={handleSubmit} 
+            className="text-black my-4 p-6 bg-white rounded-xl shadow-lg flex flex-col gap-4 w-full max-w-md items-center">
+            <select 
+                name="color-note" 
+                id="color-note" 
+                value={noteColor} 
+                onChange={handleColorChange} 
+                className="p-3 border-2 border-lightGreen rounded-lg w-full text-gray-700 focus:outline-none focus:ring focus:ring-lightGreen">
                 <option value="border-blue-600">Azul</option>
                 <option value="border-violet-600">Violeta</option>
                 <option value="border-pink-600">Rosa</option>
                 <option value="border-red-600">Rojo</option>
                 <option value="border-gray-600">Gris</option>
             </select>
-            <input type="text" placeholder="Ingrese su nota!" onChange={handleNote} maxLength="50" className="border-2 border-green-800 focus:border-4 focus:outline-none text-center w-2/4 rounded-xl min-h-24"/>
-            <button type="submit" className="relative p-3 block text-white border bg-green-700 rounded-lg hover:bg-green-900">Guardar nota</button>
+            <input 
+                type="text" 
+                placeholder="Ingrese su nota!" 
+                onChange={handleNote} 
+                maxLength="50" 
+                className="border-2 border-lightGreen focus:border-lightGreen focus:ring focus:ring-lightGreen text-center w-full rounded-xl p-3"/>
+            <button 
+                type="submit" 
+                className="relative p-3 w-full text-white bg-lightGreen rounded-lg shadow-md hover:bg-green-800 transition-all">Guardar nota</button>
         </form>
-        <div className="mt-4 flex flex-col items-center p-4">
-            <h3 className="text-center text-xl p-2">
+        <div className="mt-6 flex flex-col items-center w-full">
+            <h3 className="text-center text-2xl font-semibold text-white p-2">
                 Tus ultimas notas
             </h3>
-            <ul className="flex flex-col lg:flex-row justify-center w-3/4">
+            <ul className="flex flex-col lg:flex-row justify-center gap-4 w-full max-w-4xl">
             {
             notes.slice(-3).map((note) => (
                 <li
                     key={note.id}
-                    className={`p-4 m-2 border-4 ${note.color} text-center bg-white text-black rounded-xl`} 
+                    className={`p-4 border-4 ${note.color} bg-white shadow-md rounded-lg w-full lg:w-1/4`}
                 >
-                    <h4 className="text-xs">Nota N: {note.id}</h4>
-                    <p className="text-xl break-words">{note.value}</p>
+                    <h4 className="text-xs text-gray-500">Nota N: {note.id}</h4>
+                    <p className="text-lg text-gray-800 break-words">{note.value}</p>
                 </li>
             ))}
         </ul>
