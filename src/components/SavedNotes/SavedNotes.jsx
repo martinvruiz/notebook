@@ -53,7 +53,7 @@ export const SavedNotes = ()=>{
             {notes.map((note)=>(
                 <li key={note.id} className={`p-4 w-full sm:w-1/3 md:w-1/4 border-4 ${note.color} bg-white shadow-lg rounded-lg flex flex-col items-center`}>
                     <h4 className="text-sm text-gray-500 mb-2">Nota N: {note.id}</h4>
-                    <p className="text-lg text-gray-800 mb-4 break-words">{note.value}</p>
+                    <p className="text-lg text-gray-800 mb-4 h-auto text-center w-full break-words">{note.value}</p>
                     <button onClick={()=>btnDelete(note.id)} className="text-sm text-white bg-red-600 p-2 rounded-md shadow hover:bg-red-700 transition">Eliminar</button>
 
                 </li>
